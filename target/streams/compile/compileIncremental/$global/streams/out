@@ -1,0 +1,38 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set()[0m
+[0m[[0mdebug[0m] [0m	modified: Set(/home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala)[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set()[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set()[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala)[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /home/knodus/IdeaProjects/PostgresDemo/target/scala-2.12/classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.12.1[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.12.1[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 1e9eda29, interfacing (CompilerInterface) with Scala compiler version 2.12.1[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes:/home/knodus/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.1.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/home/knodus/IdeaProjects/PostgresDemo/target/scala-2.12/classes:/home/knodus/.ivy2/cache/com.typesafe.slick/slick_2.12/bundles/slick_2.12-3.2.0.jar:/home/knodus/.ivy2/cache/com.typesafe/config/bundles/config-1.2.1.jar:/home/knodus/.ivy2/cache/org.reactivestreams/reactive-streams/jars/reactive-streams-1.0.0.jar:/home/knodus/.ivy2/cache/com.typesafe.slick/slick-hikaricp_2.12/bundles/slick-hikaricp_2.12-3.2.0.jar:/home/knodus/.ivy2/cache/com.zaxxer/HikariCP/bundles/HikariCP-2.5.1.jar:/home/knodus/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.21.jar:/home/knodus/.ivy2/cache/org.postgresql/postgresql/bundles/postgresql-9.4.1212.jar[0m
+[0m[[0mdebug[0m] [0mScala compilation took 5.586533392 s[0m
+[0m[[0mdebug[0m] [0mInvalidating /home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala...[0m
+[0m[[0mdebug[0m] [0mInvalidating (transitively) by inheritance from /home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala...[0m
+[0m[[0mdebug[0m] [0mInitial set of included nodes: Set(/home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala)[0m
+[0m[[0mdebug[0m] [0mInvalidated by transitive inheritance dependency: Set(/home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala)[0m
+[0m[[0mdebug[0m] [0mThe /home/knodus/IdeaProjects/PostgresDemo/src/main/scala/Hello.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m	insertRes.[0m
+[0m[[0mdebug[0m] [0mAll member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0mNew invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mInitial set of included nodes: Set()[0m
+[0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mAll newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m
