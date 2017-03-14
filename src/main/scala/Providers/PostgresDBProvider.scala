@@ -9,3 +9,4 @@ trait PostgresDBProvider extends DBProvider{
   val db = Database.forConfig("myPostgresDB")
 
 }
+

@@ -9,3 +9,4 @@ trait DBProvider {
   val db: Database
 
 }
+

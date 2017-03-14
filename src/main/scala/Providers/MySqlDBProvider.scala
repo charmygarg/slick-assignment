@@ -9,3 +9,4 @@ trait MySqlDBProvider extends DBProvider{
   val db = Database.forConfig("myMySqlDB")
 
 }
+

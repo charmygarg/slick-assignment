@@ -60,3 +60,4 @@ object Slick extends App {
   Thread.sleep(30000)
 
 }
+
