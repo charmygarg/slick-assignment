@@ -22,7 +22,7 @@ object Slick extends App {
   val allProjects = Await.result(ProjectComponent.getAll, 100000.second)
   println("All Projects: " + allProjects)
 
-  ProjectComponent.delete("play")
+  ProjectComponent.delete("Play")
   val allProjectsAfterDel = Await.result(ProjectComponent.getAll, 100000.second)
   println("All Projects after deletion: " + allProjectsAfterDel)
 
@@ -34,16 +34,28 @@ object Slick extends App {
   val allProjectsAfterUpsert = Await.result(ProjectComponent.getAll, 100000.second)
   println("All Projects after upsert: " + allProjectsAfterUpsert)
 
-  val findProject = Await.result(ProjectComponent.find(2), 100000.second)
+  val findProject = Await.result(ProjectComponent.find(1), 100000.second)
   println("Finding Projects: " + findProject)
 
   DependentComponent.create
 
-  DependentComponent.insert(Dependent(1, "Archit", "Brother", Some(17)))
+  DependentComponent.insert(Dependent(1, "Archit", "Brother", None))
   DependentComponent.insert(Dependent(2, "Simmi", "Sister", Some(19)))
 
   val allDependents = Await.result(DependentComponent.getAll, 100000.second)
   println("All Dependents:" + allDependents)
+
+  val crossJoinDependent = Await.result(DependentComponent.crossJoin, 100000.second)
+  println("After crossJoin Employee and Dependent: " + crossJoinDependent)
+
+  val innerJoinDependent = Await.result(DependentComponent.innerJoin, 100000.second)
+  println("After innerJoin Employee and Dependent: " + innerJoinDependent)
+
+  val leftJoinDependent = Await.result(DependentComponent.leftOuterJoin, 100000.second)
+  println("After leftOuterJoin Employee and Dependent: " + leftJoinDependent)
+
+  val fullJoinDependent = Await.result(DependentComponent.fullJoin, 100000.second)
+  println("After fullJoin Employee and Dependent: " + fullJoinDependent)
 
   Thread.sleep(30000)
 

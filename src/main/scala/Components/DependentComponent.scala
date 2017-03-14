@@ -40,6 +40,34 @@ object DependentComponent extends DependentTable {
     db.run(query)
   }
 
+  def crossJoin: Future[List[(String, String)]] = {
+    val query = for {
+      (e, d) <- employeeTableQuery join dependentTableQuery
+    } yield (e.name, d.depName)
+    db.run(query.to[List].result)
+  }
+
+  def innerJoin: Future[List[(String, String)]] = {
+    val query = for {
+      (e, d) <- employeeTableQuery join dependentTableQuery on(_.id === _.depId)
+    } yield (e.name, d.depName)
+    db.run(query.to[List].result)
+  }
+
+  def leftOuterJoin: Future[List[(String, Option[Int])]] = {
+    val query = for {
+      (e, d) <- employeeTableQuery joinLeft dependentTableQuery on(_.id === _.depId)
+    } yield (e.name, d.flatMap(_.depAge))
+    db.run(query.to[List].result)
+  }
+
+  def fullJoin = {
+    val query = for {
+      (e, d) <- employeeTableQuery joinFull dependentTableQuery on (_.id === _.depId)
+    } yield (e.flatMap(_.name), d.flatMap(_.depAge))
+    db.run(query.to[List].result)
+  }
+
 }
 
 
