@@ -9,7 +9,7 @@ trait DependentTable extends EmployeeTable {
   import driver.api._
 
   class DependentTable(tag: Tag) extends Table[Dependent](tag, "dependent_table") {
-    val depId = column[Int]("depId")
+    val depId = column[Int]("depId", O.PrimaryKey)
     val depName = column[String]("depName")
     val relation = column[String]("relation")
     val depAge = column[Option[Int]]("depAge")

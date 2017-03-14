@@ -9,7 +9,7 @@ trait ProjectTable extends EmployeeTable {
   import driver.api._
 
   class ProjectTable(tag: Tag) extends Table[Project](tag, "project_table") {
-    val projId = column[Int]("projId")
+    val projId = column[Int]("projId", O.PrimaryKey)
     val projName = column[String]("projName")
     def employeeProjectFk = foreignKey(
       "employee_project_fk", projId, employeeTableQuery)(_.id)

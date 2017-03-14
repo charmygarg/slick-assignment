@@ -12,15 +12,30 @@ object Slick extends App {
   EmployeeComponent.insert(Employee(2, "Simar", 1.3D))
 
   val allEmployees = Await.result(EmployeeComponent.getAll, 100000.second)
-  println("All Employees:" + allEmployees)
+  println("All Employees: " + allEmployees)
 
   ProjectComponent.create
 
   ProjectComponent.insert(Project(1, "Scala"))
-  ProjectComponent.insert(Project(1, "Play"))
+  ProjectComponent.insert(Project(2, "Play"))
 
   val allProjects = Await.result(ProjectComponent.getAll, 100000.second)
-  println("All Projects:" + allProjects)
+  println("All Projects: " + allProjects)
+
+  ProjectComponent.delete("play")
+  val allProjectsAfterDel = Await.result(ProjectComponent.getAll, 100000.second)
+  println("All Projects after deletion: " + allProjectsAfterDel)
+
+  ProjectComponent.updateName(1, "Akka")
+  val allProjectsAfterUpdate = Await.result(ProjectComponent.getAll, 100000.second)
+  println("All Projects after updating: " + allProjectsAfterUpdate)
+
+  ProjectComponent.insertOrUpdate(Project(3, "Spark"))
+  val allProjectsAfterUpsert = Await.result(ProjectComponent.getAll, 100000.second)
+  println("All Projects after upsert: " + allProjectsAfterUpsert)
+
+  val findProject = Await.result(ProjectComponent.find(2), 100000.second)
+  println("Finding Projects: " + findProject)
 
   DependentComponent.create
 
