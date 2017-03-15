@@ -3,7 +3,7 @@ package Tables
 import Providers.{MySqlDBProvider, DBProvider}
 import models.Employee
 
-trait EmployeeTable extends MySqlDBProvider {
+trait EmployeeTable {
 
   this: DBProvider =>
   import driver.api._

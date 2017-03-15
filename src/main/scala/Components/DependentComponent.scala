@@ -1,12 +1,12 @@
 package Components
 
-import Providers.DBProvider
+import Providers.{MySqlDBProvider, DBProvider}
 import Tables.DependentTable
 import models.Dependent
 
 import scala.concurrent.Future
 
-object DependentComponent extends DependentTable {
+trait DependentComponent extends DependentTable {
 
   this: DBProvider =>
   import driver.api._
@@ -68,7 +68,20 @@ object DependentComponent extends DependentTable {
     db.run(query.to[List].result)
   }
 
+  def getMax = {
+    val query = dependentTableQuery.map(_.depId).max
+    db.run(query.result)
+  }
+
+  def getMin = {
+    val query = dependentTableQuery.map(_.depId).min
+    db.run(query.result)
+  }
+
 }
+
+object DependentComponent extends DependentComponent with MySqlDBProvider
+
 
 
 

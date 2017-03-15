@@ -2,7 +2,6 @@ import Components.{ProjectComponent, DependentComponent, EmployeeComponent}
 import models.{Dependent, Project, Employee}
 import scala.concurrent.Await
 import scala.concurrent.duration._
-import scala.concurrent.ExecutionContext.Implicits.global
 
 object Slick extends App {
 
@@ -37,6 +36,24 @@ object Slick extends App {
   val findProject = Await.result(ProjectComponent.find(1), 100000.second)
   println("Finding Projects: " + findProject)
 
+  val crossJoinProject = Await.result(ProjectComponent.crossJoin, 100000.second)
+  println("After crossJoin Employee and Project: " + crossJoinProject)
+
+  val innerJoinProject = Await.result(ProjectComponent.innerJoin, 100000.second)
+  println("After innerJoin Employee and Project: " + innerJoinProject)
+
+  val leftJoinProject = Await.result(ProjectComponent.leftOuterJoin, 100000.second)
+  println("After leftOuterJoin Employee and Project: " + leftJoinProject)
+
+  val fullJoinProject = Await.result(ProjectComponent.fullJoin, 100000.second)
+  println("After fullJoin Employee and Project: " + fullJoinProject)
+
+  val maxProj = Await.result(ProjectComponent.getMax, 100000.second)
+  println("Getting maximum: " + maxProj)
+
+  val minProj = Await.result(ProjectComponent.getMin, 100000.second)
+  println("Getting minimum: " + minProj)
+
   DependentComponent.create
 
   DependentComponent.insert(Dependent(1, "Archit", "Brother", None))
@@ -57,6 +74,9 @@ object Slick extends App {
   val fullJoinDependent = Await.result(DependentComponent.fullJoin, 100000.second)
   println("After fullJoin Employee and Dependent: " + fullJoinDependent)
 
+  val max = Await.result(DependentComponent.getMax, 100000.second)
+  println("Getting maximum: " + max)
+  
   Thread.sleep(30000)
 
 }

@@ -1,12 +1,11 @@
 package Components
 
-import Providers.DBProvider
+import Providers.{MySqlDBProvider, DBProvider}
 import Tables.EmployeeTable
 import models.Employee
-
 import scala.concurrent.Future
 
-object EmployeeComponent extends EmployeeTable {
+trait EmployeeComponent extends EmployeeTable {
 
   this: DBProvider =>
   import driver.api._
@@ -18,7 +17,7 @@ object EmployeeComponent extends EmployeeTable {
   }
 
   def delete(exp: Double): Future[Int] = {
-    val query = employeeTableQuery.filter(_.experience > exp)
+    val query = employeeTableQuery.filter(_.experience === exp)
     val action = query.delete
     db.run(action)
   }
@@ -41,5 +40,7 @@ object EmployeeComponent extends EmployeeTable {
   }
 
 }
+
+object EmployeeComponent extends EmployeeComponent with MySqlDBProvider
 
 

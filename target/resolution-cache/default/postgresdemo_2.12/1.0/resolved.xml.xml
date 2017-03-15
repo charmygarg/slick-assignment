@@ -4,7 +4,7 @@
 		module="postgresdemo_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170313180126"
+		publication="20170316000123"
 	>
 		<description>
 		PostgresDemo
@@ -24,6 +24,7 @@
 		<conf name="docs" visibility="public" description=""/>
 		<conf name="pom" visibility="public" description=""/>
 		<conf name="scala-tool" visibility="private" description=""/>
+		<conf name="scoveragePlugin" visibility="private" description=""/>
 	</configurations>
 	<publications>
 		<artifact name="postgresdemo_2.12" type="pom" ext="pom" conf="pom"/>
@@ -38,5 +39,7 @@
 		<dependency org="com.typesafe.slick" name="slick-hikaricp_2.12" rev="3.2.0" conf="compile->default(compile)"/>
 		<dependency org="org.postgresql" name="postgresql" rev="9.4.1212" conf="compile->default(compile)"/>
 		<dependency org="mysql" name="mysql-connector-java" rev="5.1.34" conf="compile->default(compile)"/>
+		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.1" conf="test->default(compile)"/>
+		<dependency org="com.h2database" name="h2" rev="1.4.193" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>
