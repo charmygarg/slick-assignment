@@ -78,6 +78,11 @@ trait DependentComponent extends DependentTable {
     db.run(query.result)
   }
 
+  def plainSql = {
+    val action = sql"select depId, depName, relation, depAge from dependent_table".as[(Int,String,String,Int)]
+    db.run(action)
+  }
+
 }
 
 object DependentComponent extends DependentComponent with MySqlDBProvider

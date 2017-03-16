@@ -79,6 +79,11 @@ trait ProjectComponent extends ProjectTable {
     db.run(query.result)
   }
 
+  def plainSql = {
+    val action = sql"select projId, projName from project_table".as[(Int,String)]
+    db.run(action)
+  }
+
 }
 
 object ProjectComponent extends ProjectComponent with MySqlDBProvider

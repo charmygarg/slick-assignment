@@ -54,6 +54,9 @@ object Slick extends App {
   val minProj = Await.result(ProjectComponent.getMin, 100000.second)
   println("Getting minimum: " + minProj)
 
+  val plainSqlProj = Await.result(ProjectComponent.plainSql, 100000.second)
+  println("Plain Sql in Project: " + plainSqlProj)
+
   DependentComponent.create
 
   DependentComponent.insert(Dependent(1, "Archit", "Brother", None))
@@ -76,7 +79,13 @@ object Slick extends App {
 
   val max = Await.result(DependentComponent.getMax, 100000.second)
   println("Getting maximum: " + max)
-  
+
+  val min = Await.result(DependentComponent.getMin, 100000.second)
+  println("Getting maximum: " + min)
+
+  val plainSqlDep = Await.result(DependentComponent.plainSql, 100000.second)
+  println("Plain Sql in Project: " + plainSqlDep)
+
   Thread.sleep(30000)
 
 }
