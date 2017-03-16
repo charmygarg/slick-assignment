@@ -39,6 +39,13 @@ trait EmployeeComponent extends EmployeeTable {
     db.run(query)
   }
 
+  def dbioAction(emp: Employee, emp1: Employee) = {
+    val ins1: DBIO[Int] = employeeTableQuery += emp
+    val ins2: DBIO[Int] = employeeTableQuery += emp1
+    val action: DBIO[(Int, Int)] = ins1 zip ins2
+    db.run(action)
+  }
+
 }
 
 object EmployeeComponent extends EmployeeComponent with MySqlDBProvider

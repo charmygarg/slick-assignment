@@ -61,24 +61,24 @@ trait DependentComponent extends DependentTable {
     db.run(query.to[List].result)
   }
 
-  def fullJoin = {
+  def fullJoin: Future[List[(Option[String], Option[Int])]] = {
     val query = for {
       (e, d) <- employeeTableQuery joinFull dependentTableQuery on (_.id === _.depId)
     } yield (e.flatMap(_.name), d.flatMap(_.depAge))
     db.run(query.to[List].result)
   }
 
-  def getMax = {
+  def getMax: Future[Option[Int]] = {
     val query = dependentTableQuery.map(_.depId).max
     db.run(query.result)
   }
 
-  def getMin = {
+  def getMin: Future[Option[Int]] = {
     val query = dependentTableQuery.map(_.depId).min
     db.run(query.result)
   }
 
-  def plainSql = {
+  def plainSql: Future[Vector[(Int, String, String, Int)]] = {
     val action = sql"select depId, depName, relation, depAge from dependent_table".as[(Int,String,String,Int)]
     db.run(action)
   }

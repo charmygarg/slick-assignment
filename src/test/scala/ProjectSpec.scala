@@ -47,7 +47,7 @@ class ProjectSpec extends AsyncFunSuite {
   }
 
   test("it should Full Join Project and Employee") {
-    project.leftOuterJoin.map(x => assert(x == List(("charmy", Some(1)))))
+    project.fullJoin.map(x => assert(x == List((Some("charmy"), Some(1)))))
   }
 
   test("it should Get Maximum") {

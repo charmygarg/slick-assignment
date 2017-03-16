@@ -79,8 +79,15 @@ trait ProjectComponent extends ProjectTable {
     db.run(query.result)
   }
 
-  def plainSql = {
+  def plainSql: Future[Vector[(Int, String)]] = {
     val action = sql"select projId, projName from project_table".as[(Int,String)]
+    db.run(action)
+  }
+
+  def dbioAction(proj: Project, proj1: Project) = {
+    val ins1: DBIO[Int] = projectTableQuery += proj
+    val ins2: DBIO[Int] = projectTableQuery += proj
+    val action: DBIO[(Int, Int)] = ins1 zip ins2
     db.run(action)
   }
 
